@@ -31169,7 +31169,7 @@ EOF
 
   tensorflowWithCuda = buildPythonPackage rec {
     name = "tensorflow";
-    version = "0.12.0rc0";
+    version = "0.12.1";
     format = "wheel";
     disabled = !(isPy35 || isPy27);
     pythonVersion =
@@ -31179,7 +31179,7 @@ EOF
     src = pkgs.fetchurl {
       url = "https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-${version}-${pythonVersion}-linux_x86_64.whl";
       sha256 =
-        if isPy35 then "1ssjvgnwy4z6nqb3mcazw3lx6vffvdrmibm49fvnh5di7i88adms"
+        if isPy35 then "0vx19hxk224f35f30n5x702xblxh2gapshclx602nvmi601yxp5f"
         else           "0fw5bkfs3k94z7pf1h6zbf9g8nz7pqfa7ynq95qqdw7dqxpr2zy9";
     };
 
