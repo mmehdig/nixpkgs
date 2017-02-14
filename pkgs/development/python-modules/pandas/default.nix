@@ -64,9 +64,7 @@ in buildPythonPackage rec {
                 "['pandas/src/klib', 'pandas/src', '$cpp_sdk']"
 
   # disable clipboard tests since pbcopy/pbpaste are not open source
-    substituteInPlace pandas/io/tests/test_clipboard.py \
-      --replace pandas.util.clipboard no_such_module \
-      --replace OSError ImportError
+    rm pandas/io/tests/test_clipboard.py
   '';
 
   # The flag `-A 'not network'` will disable tests that use internet.
@@ -76,7 +74,7 @@ in buildPythonPackage rec {
     runHook preCheck
     # The flag `-w` provides the initial directory to search for tests.
     # The flag `-A 'not network'` will disable tests that use internet.
-    nosetests -w $out/${python.sitePackages}/pandas --no-path-adjustment -A 'not slow and not network' --stop \
+    nosetests -w $out/${python.sitePackages}/pandas --no-path-adjustment -A 'not slow and not network' --stop -e test_locale \
       --verbosity=3
      runHook postCheck
   '';
