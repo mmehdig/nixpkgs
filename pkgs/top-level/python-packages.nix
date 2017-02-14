@@ -16223,7 +16223,7 @@ in {
 
 
   buildNumpyPackage = callPackage ../development/python-modules/numpy.nix {
-    gfortran = pkgs.gfortran;
+    gfortran = pkgs.gfortran49;
     blas = pkgs.openblasCompat;
   };
 
@@ -23277,7 +23277,7 @@ in {
   };
 
   buildScipyPackage = callPackage ../development/python-modules/scipy.nix {
-    gfortran = pkgs.gfortran;
+    gfortran = pkgs.gfortran49;
   };
 
   scipy = self.scipy_0_18;
