@@ -31181,7 +31181,7 @@ EOF
       url = "https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-${version}-${pythonVersion}-linux_x86_64.whl";
       sha256 =
         if isPy35 then "0vx19hxk224f35f30n5x702xblxh2gapshclx602nvmi601yxp5f"
-        else           "0fw5bkfs3k94z7pf1h6zbf9g8nz7pqfa7ynq95qqdw7dqxpr2zy9";
+        else           "1jv1qsbzh3sljrv98i3jlvw7z0p8pin6rgszp1fjwyj9x9s8wr34";
     };
 
     buildInputs = with self; [ pkgs.swig ];
