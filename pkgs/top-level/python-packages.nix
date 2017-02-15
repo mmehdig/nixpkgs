@@ -30971,8 +30971,10 @@ EOF
 
   Keras = buildPythonPackage rec {
     name = "Keras-${version}";
-    version = "1.0.3";
+    version = "1.2.2";
     disabled = isPy3k;
+
+    doCheck = false; # see https://github.com/NixOS/nixpkgs/issues/12591
 
     src = pkgs.fetchurl {
       url = "mirror://pypi/k/keras/${name}.tar.gz";
@@ -30980,7 +30982,7 @@ EOF
     };
 
     propagatedBuildInputs = with self; [
-      six Theano pyyaml
+      six  pyyaml Theano (if stdenv.isDarwin then tensorflow else tensorflowWithCuda)
     ];
 
     meta = {
