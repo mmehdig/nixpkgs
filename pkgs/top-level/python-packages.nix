@@ -31120,7 +31120,7 @@ EOF
 
   tensorflowWithoutCuda = buildPythonPackage rec {
     name = "tensorflow";
-    version = "0.12.0rc0";
+    version = "0.12.1";
     format = "wheel";
     disabled = !(isPy35 || isPy27);
     pythonVersion =
@@ -31142,12 +31142,12 @@ EOF
 
       sha256 =
         if isPy35 then (
-          if stdenv.isDarwin then "1qs7ghc62vjffv41349a164ch97kgipfcs6a2ynnjag0f4cn7n4w"
-          else                    "1c09s9pj9w9z7qqi2b55smj71nmlmszcrrqsqc0xm20x16fahpkv"
+          if stdenv.isDarwin then "11mb3nql6x70h8720hp5cmyx508ax5d3h437k1jpnhm7d7mk5zpk"
+          else                    "12093mcj6pggv79ig931bq31sxd01a3krza3xjd7ppgbzw4ad2mp"
         )
         else (
-          if stdenv.isDarwin then "04wvpp9gjcsh56gpsajh2mrrr01v9pfkh7xzah34h2jwvz3hdbzy"
-          else                    "15r5s6wncz6a8vgz8f005nbfzdvkwbc0rg8j7lk31g6xcn8a3q1h"
+          if stdenv.isDarwin then "03815mxzbc3v34nxx9b562va21l18k3vyzix9z841206c517z5v1"
+          else                    "0m45ypkc63fb9yj4lx193vah9f07v0ajq7nqd1hlwnmzg3mw1m3m"
         );
     };
 
