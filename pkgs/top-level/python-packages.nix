@@ -30972,13 +30972,12 @@ EOF
   Keras = buildPythonPackage rec {
     name = "Keras-${version}";
     version = "1.2.2";
-    disabled = isPy3k;
 
     doCheck = false; # see https://github.com/NixOS/nixpkgs/issues/12591
 
     src = pkgs.fetchurl {
       url = "mirror://pypi/k/keras/${name}.tar.gz";
-      sha256 = "0wi826bvifvy12w490ghj1g45z5xb83q2cadqh425sg56p98khaq";
+      sha256 = "0bby93sffjadrxnx9j9nn2lq0ygsgqjp16260c6lz77b6r1qrcfj";
     };
 
     propagatedBuildInputs = with self; [
