@@ -7281,6 +7281,54 @@ in {
     };
   };
 
+## Mehdi: this is for gensim
+bz2file = pkgs.python35Packages.buildPythonPackage rec {
+    pname = "bz2file";
+    version = "0.98";
+    name = "${pname}-${version}";
+
+    src = pkgs.python35Packages.fetchPypi {
+      inherit pname version;
+      sha256 = "126s53fkpx04f33a829yqqk8fj4png3qwg4m66cvlmhmwc8zihb4";
+    };
+
+    propagatedBuildInputs = with self; [ ];
+
+    doCheck = false;    
+};
+
+smart_open = pkgs.python35Packages.buildPythonPackage rec {
+    pname = "smart_open";
+    version = "1.4.0";
+    name = "${pname}-${version}";
+
+    src = pkgs.python35Packages.ifetchPypi {
+      inherit pname version;
+      sha256 = "0c2hfjn47aqmsz1x0hqv7brvmbhpqgy1llhr52fw5zvjpvwmmzgy";
+    };
+
+    propagatedBuildInputs = with self; [ boto  bz2file ];
+
+    doCheck = false;
+};
+
+gensim = pkgs.python35Packages.buildPythonPackage rec {
+    pname = "gensim";
+    version = "1.0.0";
+    name = "${pname}-${version}";
+
+    src = pkgs.python35Packages.fetchPypi {
+      inherit pname version;
+      sha256 = "1qb97fzsxrqrfwl5llyga52l15iml3s2pqa54119mn05h5fqmjxg";
+    };
+
+    propagatedBuildInputs = with self; [ numpy scipy six smart_open cython ];
+
+    doCheck = false;
+    
+  };
+
+  ## Mehdi: end of gensim
   gmpy = buildPythonPackage rec {
     name = "gmpy-1.17";
     disabled = isPyPy;
