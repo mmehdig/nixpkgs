@@ -7287,7 +7287,7 @@ bz2file = pkgs.python35Packages.buildPythonPackage rec {
     version = "0.98";
     name = "${pname}-${version}";
 
-    src = pkgs.python35Packages.fetchPypi {
+    src = fetchPypi {
       inherit pname version;
       sha256 = "126s53fkpx04f33a829yqqk8fj4png3qwg4m66cvlmhmwc8zihb4";
     };
@@ -7302,7 +7302,7 @@ smart_open = pkgs.python35Packages.buildPythonPackage rec {
     version = "1.4.0";
     name = "${pname}-${version}";
 
-    src = pkgs.python35Packages.ifetchPypi {
+    src = fetchPypi {
       inherit pname version;
       sha256 = "0c2hfjn47aqmsz1x0hqv7brvmbhpqgy1llhr52fw5zvjpvwmmzgy";
     };
@@ -7317,7 +7317,7 @@ gensim = pkgs.python35Packages.buildPythonPackage rec {
     version = "1.0.0";
     name = "${pname}-${version}";
 
-    src = pkgs.python35Packages.fetchPypi {
+    src = fetchPypi {
       inherit pname version;
       sha256 = "1qb97fzsxrqrfwl5llyga52l15iml3s2pqa54119mn05h5fqmjxg";
     };
