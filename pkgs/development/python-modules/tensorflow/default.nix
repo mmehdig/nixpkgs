@@ -23,7 +23,7 @@
 #                   && gcc49 != null
 #                   && linuxPackages != null;
 assert cudaSupport -> cudatoolkit8 != null
-                   && cudnn51_cudatoolkit8 != null
+                   && cudnn51_cudatoolkit80 != null
                    && gcc49 != null
                    && linuxPackages != null;
 
@@ -104,7 +104,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = with stdenv.lib;
     [ numpy six protobuf3_2 swig mock ]
 #    ++ optionals cudaSupport [ cudatoolkit75 cudnn5_cudatoolkit75 gcc49 ];
-    ++ optionals cudaSupport [ cudatoolkit8 cudnn51_cudatoolkit8 gcc49 ];
+    ++ optionals cudaSupport [ cudatoolkit8 cudnn51_cudatoolkit80 gcc49 ];
 
   # Note that we need to run *after* the fixup phase because the
   # libraries are loaded at runtime. If we run in preFixup then
