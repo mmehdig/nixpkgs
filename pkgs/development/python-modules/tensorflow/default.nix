@@ -113,7 +113,7 @@ buildPythonPackage rec {
     rpath = stdenv.lib.makeLibraryPath
       (if cudaSupport then
 #        [ gcc49.cc.lib zlib cudatoolkit75 cudnn5_cudatoolkit75
-        [ gcc49.cc.lib zlib cudatoolkit8 cudnn51_cudatoolkit8
+        [ gcc49.cc.lib zlib cudatoolkit8 cudnn51_cudatoolkit80
           linuxPackages.nvidia_x11 ]
       else
         [ gcc.cc.lib zlib ]
