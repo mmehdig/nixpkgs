@@ -3,8 +3,10 @@
 , buildPythonPackage
 , isPy35, isPy27
 , cudaSupport ? false
-, cudatoolkit75 ? null
-, cudnn5_cudatoolkit75 ? null
+#, cudatoolkit75 ? null
+#, cudnn5_cudatoolkit75 ? null
+, cudatoolkit8 ? null
+, cudnn51_cudatoolkit80 ? null
 , gcc49 ? null
 , linuxPackages ? null
 , numpy
@@ -16,8 +18,12 @@
 , zlib
 }:
 
-assert cudaSupport -> cudatoolkit75 != null
-                   && cudnn5_cudatoolkit75 != null
+#assert cudaSupport -> cudatoolkit75 != null
+#                   && cudnn5_cudatoolkit75 != null
+#                   && gcc49 != null
+#                   && linuxPackages != null;
+assert cudaSupport -> cudatoolkit8 != null
+                   && cudnn51_cudatoolkit8 != null
                    && gcc49 != null
                    && linuxPackages != null;
 
@@ -97,7 +103,8 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = with stdenv.lib;
     [ numpy six protobuf3_2 swig mock ]
-    ++ optionals cudaSupport [ cudatoolkit75 cudnn5_cudatoolkit75 gcc49 ];
+#    ++ optionals cudaSupport [ cudatoolkit75 cudnn5_cudatoolkit75 gcc49 ];
+    ++ optionals cudaSupport [ cudatoolkit8 cudnn51_cudatoolkit8 gcc49 ];
 
   # Note that we need to run *after* the fixup phase because the
   # libraries are loaded at runtime. If we run in preFixup then
@@ -105,7 +112,8 @@ buildPythonPackage rec {
   postFixup = let
     rpath = stdenv.lib.makeLibraryPath
       (if cudaSupport then
-        [ gcc49.cc.lib zlib cudatoolkit75 cudnn5_cudatoolkit75
+#        [ gcc49.cc.lib zlib cudatoolkit75 cudnn5_cudatoolkit75
+        [ gcc49.cc.lib zlib cudatoolkit8 cudnn51_cudatoolkit8
           linuxPackages.nvidia_x11 ]
       else
         [ gcc.cc.lib zlib ]
